@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { alignContent, flex, flexDirection, width } from 'styled-system';
 
 
+
 export function Signup(props) {
 
     
@@ -22,6 +23,7 @@ export function Signup(props) {
   const[username,setUsername] = useState()
   const[email,setEmail] = useState()
   const[password,setPassword] = useState()
+  
   const validateEmail = ( emailVal ) => {
     if( emailVal.indexOf('@') > 0 ) {
       setValidEmail( true )
@@ -33,7 +35,7 @@ export function Signup(props) {
   }
 
   const validatePassword = ( passwordVal ) => {
-    if( passwordVal.length >= 8 ) {
+    if( passwordVal.length >= 3 ) {
       setValidPassword( true )
     }
     else {
@@ -61,7 +63,10 @@ export function Signup(props) {
   }
 
   const submitHandler = () => {
-    props.handler( username, email, password )
+    console.log(password)
+    console.log(props)
+
+    props.handler( email, password )
   }
 
   useEffect( () => {
@@ -226,7 +231,8 @@ export function Signup(props) {
       <View style={styles.buttonStyle}>
         <Button style={ (validForm) ? styles.buttonDesign : styles.buttonDesignDisable}
         disabled={ (validForm) ? false : true }
-        onPress={ () => submitHandler() } >
+        onPress={ () => submitHandler() }
+        >
             REGISTER NOW
         </Button>
       </View>

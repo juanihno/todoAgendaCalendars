@@ -7,16 +7,17 @@ import { useNavigation } from '@react-navigation/native';
 import { alignContent, flex, flexDirection, width } from 'styled-system';
 
 
-export function Login() {
+
+export function Signin(props) {
     const navigation = useNavigation();
     const [email,setEmail] = useState()
     const [password, setPassword] = useState()
    
-    /*useEffect( () => {
+    useEffect( () => {
         if( props.auth === true ) {
           navigation.reset({ index: 0, routes: [ {name: 'Home'} ] })
         }
-      }, [props.auth] )*/
+      }, [props.auth] )
 
   return (
     <View style={styles.container}>
@@ -211,7 +212,7 @@ export default () => {
   return (
     <NativeBaseProvider>
      
-        <Login />
+        <Signin />
       
     </NativeBaseProvider>
   )
